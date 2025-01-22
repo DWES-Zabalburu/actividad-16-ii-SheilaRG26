@@ -5,18 +5,18 @@
 package org.zabalburu.daw1.ActividadEvento.servicio;
 
 import java.util.List;
-import org.zabalburu.daw1.ActividadEvento.dao.EventoDAO;
 import org.zabalburu.daw1.ActividadEvento.dao.EventoList;
 import org.zabalburu.daw1.ActividadEvento.modelo.Evento;
 import org.zabalburu.daw1.ActividadEvento.modelo.Usuario;
+import org.zabalburu.daw1.ActividadEvento.dao.UsusarioDAO;
 
 /**
  *
  * @author Sheila
  */
-public class EventoServicio implements EventoDAO {
+public class EventoServicio implements UsusarioDAO {
     
-    private EventoDAO dao = new EventoList(); // porque????
+    private UsusarioDAO dao = new EventoList(); // porque????
 
     @Override
     public void nuevoEvento(Evento nuevo) {

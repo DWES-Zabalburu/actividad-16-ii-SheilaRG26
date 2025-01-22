@@ -22,10 +22,14 @@ public class Evento {
     private double coste;
     
     private List<Usuario> usuarios = new ArrayList<>();
-
-    public Evento(int codigo, String descripcion, Date fecha, String lugar, boolean mayorEdad, double coste) {
-        numEvento++;
-        this.codigo = numEvento;
+    
+    public Evento (){
+    Evento.numEvento++;
+    this.codigo = Evento.numEvento;
+    }
+    
+    public Evento( String descripcion, Date fecha, String lugar, boolean mayorEdad, double coste) {
+        this();
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.lugar = lugar;
@@ -121,7 +125,7 @@ public class Evento {
 
     @Override
     public String toString() {
-        return "Evento{" + "codigo=" + codigo + ", descripcion=" + descripcion + ", fecha=" + fecha + ", lugar=" + lugar + ", mayorEdad=" + mayorEdad + ", coste=" + coste + ", usuarios=" + usuarios + '}';
+        return "Evento{" + "codigo=" + codigo + ", descripcion=" + descripcion + ", fecha=" + fecha + ", lugar=" + lugar + ", mayorEdad=" + mayorEdad + ", coste=" + coste  + '}';
     }
     
     

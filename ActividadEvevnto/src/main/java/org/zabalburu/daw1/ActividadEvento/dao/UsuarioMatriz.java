@@ -10,7 +10,7 @@ import org.zabalburu.daw1.ActividadEvento.modelo.Evento;
  *
  * @author Sheila
  */
-public class EventoMatriz {
+public class UsuarioMatriz {
     private static Evento[] eventos = new Evento[10];
     private static int numEventos = 0;
 }

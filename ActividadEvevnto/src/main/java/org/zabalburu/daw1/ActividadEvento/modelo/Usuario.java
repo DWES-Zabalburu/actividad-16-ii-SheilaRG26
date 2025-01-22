@@ -5,7 +5,9 @@
 package org.zabalburu.daw1.ActividadEvento.modelo;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -14,6 +16,7 @@ import java.util.List;
  */
 public class Usuario {
     private String nombre;
+    private String apellidos;
     private Date fnacimiento;
     private String dni;
     private String password;
@@ -21,13 +24,18 @@ public class Usuario {
     private static int numId = 0;
     
     private List<Evento> eventos= new ArrayList<>();
-
-    public Usuario(String nombre, Date fnacimiento, String dni, int id,String password) {
+    
+    public Usuario (){
+        Usuario.numId++;
+        this.id = Usuario.numId;
+    }
+    
+    public Usuario(String nombre,String apellidos, Date fnacimiento, String dni,String password) {
+        this();
         this.nombre = nombre;
+        this.apellidos = apellidos;
         this.fnacimiento = fnacimiento;
         this.dni = dni;
-        numId++;
-        this.id = numId;
         this.password = password;
     }
 
@@ -39,6 +47,14 @@ public class Usuario {
         this.nombre = nombre;
     }
 
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+    
     public Date getFnacimiento() {
         return fnacimiento;
     }
@@ -110,13 +126,27 @@ public class Usuario {
     }
     
     public boolean isMayorEdad(){
+        GregorianCalendar gcHoy = new GregorianCalendar();
+        GregorianCalendar gcFechaNacimiento = new GregorianCalendar();
+        gcFechaNacimiento.setTime(this.fnacimiento);
+        int añoActual = gcHoy.get(Calendar.YEAR);
+        int añoNacimiento = gcFechaNacimiento.get(Calendar.YEAR);
+        int edad = añoActual - añoNacimiento;
+        //Si no ha cumplido años, el día actual será menor respecto al 
+        // día de su nacimiento
+        if (gcHoy.get(Calendar.DAY_OF_YEAR)< gcFechaNacimiento.get(Calendar.DAY_OF_YEAR)) {
+            edad--;
+        } 
+        return edad >= 18;
         
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "nombre=" + nombre + ", fnacimiento=" + fnacimiento + ", dni=" + dni + ", id=" + id + ", eventos=" + eventos + '}';
+        return "Usuario{" + "nombre=" + nombre + ", apellidos=" + apellidos + ", fnacimiento=" + fnacimiento + ", dni=" + dni + ", password=" + password + ", id=" + id + '}';
     }
+
+    
     
     
     

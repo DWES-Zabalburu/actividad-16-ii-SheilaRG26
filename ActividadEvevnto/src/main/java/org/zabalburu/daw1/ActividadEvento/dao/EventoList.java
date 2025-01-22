@@ -13,9 +13,10 @@ import org.zabalburu.daw1.ActividadEvento.modelo.Usuario;
  *
  * @author Sheila
  */
-public class EventoList implements EventoDAO {
+public class EventoList implements UsusarioDAO {
     
     private static List<Evento> eventos = new ArrayList<>();
+    private static List<Usuario> usuarios = new ArrayList<>();
 /*
     No entiendo si tengo que poner la lista de evento o la de usuario, 
     y no se si tengo que hacer una clase de lista de cada uno, o solo de uno...
@@ -30,7 +31,7 @@ public class EventoList implements EventoDAO {
 
     @Override
     public void nuevoUsuario(Usuario nuevo) {
-        
+        this.usuarios.add(nuevo);
     }
 
     @Override

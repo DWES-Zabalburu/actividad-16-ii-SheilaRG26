@@ -6,19 +6,14 @@ package org.zabalburu.daw1.ActividadEvento.dao;
 
 import java.util.List;
 import org.zabalburu.daw1.ActividadEvento.modelo.Evento;
-import org.zabalburu.daw1.ActividadEvento.modelo.Usuario;
 
 /**
  *
- * @author Sheila
+ * @author DAW1
  */
 public interface EventoDAO {
     void nuevoEvento(Evento nuevo);
-    void nuevoUsuario(Usuario nuevo);
-    void eliminarUsuario(int id);
-    Usuario getUsuario(int id);
+    void eliminarEvento(int codigo);
     Evento getEvento(int codigo);
-    List<Usuario> getUsuarios();
     List<Evento> getEventos();
-    
 }
