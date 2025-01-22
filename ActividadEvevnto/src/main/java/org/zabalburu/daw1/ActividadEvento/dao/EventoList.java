@@ -6,6 +6,7 @@ package org.zabalburu.daw1.ActividadEvento.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.zabalburu.daw1.ActividadEvento.dao.EventoDAO;
 import org.zabalburu.daw1.ActividadEvento.modelo.Evento;
 import org.zabalburu.daw1.ActividadEvento.modelo.Usuario;
 
@@ -13,49 +14,39 @@ import org.zabalburu.daw1.ActividadEvento.modelo.Usuario;
  *
  * @author Sheila
  */
-public class EventoList implements UsusarioDAO {
+public class EventoList implements EventoDAO {
     
     private static List<Evento> eventos = new ArrayList<>();
-    private static List<Usuario> usuarios = new ArrayList<>();
-/*
-    No entiendo si tengo que poner la lista de evento o la de usuario, 
-    y no se si tengo que hacer una clase de lista de cada uno, o solo de uno...
-    ¿Como sabes de qué hacer la interfaz?
-    ¿Como sabes si haces clase de listas para uno o para ambos?¿y que implementarle?
-    
-    */
+   
+
     @Override
     public void nuevoEvento(Evento nuevo) {
         this.eventos.add(nuevo);
     }
 
     @Override
-    public void nuevoUsuario(Usuario nuevo) {
-        this.usuarios.add(nuevo);
-    }
-
-    @Override
-    public void eliminarUsuario(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Usuario getUsuario(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void eliminarEvento(int codigo) {
+        Evento eliminar = new Evento(null, null, null, true, 0); // crear un obejto
+        eliminar.setCodigo(codigo); // asignar el codigo
+        eventos.remove(eliminar); //eliminar
+    
     }
 
     @Override
     public Evento getEvento(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public List<Usuario> getUsuarios() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Evento buscar = new Evento(null, null, null, true, 0);// Creo un objeto tipo evento.ponemos a mano los null
+        buscar.setCodigo(codigo);// le asigno codigo a ese objeto creado
+        int pos = eventos.indexOf(buscar); 
+        if (pos != -1){
+            return eventos.get(pos);
+        } else {
+            return null;
+        }
+        
     }
 
     @Override
     public List<Evento> getEventos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return eventos;
     }
 }

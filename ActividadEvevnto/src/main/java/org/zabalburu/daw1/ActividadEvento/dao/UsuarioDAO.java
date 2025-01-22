@@ -12,7 +12,7 @@ import org.zabalburu.daw1.ActividadEvento.modelo.Usuario;
  *
  * @author Sheila
  */
-public interface UsusarioDAO {
+public interface UsuarioDAO {
     
     Usuario nuevoUsuario(Usuario nuevo);//que le devuelva lo mismo + id
     void eliminarUsuario(int id); // hay gente que devuelve valor booleano para que le diga si lo ha eliminado o no, en caso de que no exista ese id

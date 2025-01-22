@@ -8,15 +8,15 @@ import java.util.List;
 import org.zabalburu.daw1.ActividadEvento.dao.EventoList;
 import org.zabalburu.daw1.ActividadEvento.modelo.Evento;
 import org.zabalburu.daw1.ActividadEvento.modelo.Usuario;
-import org.zabalburu.daw1.ActividadEvento.dao.UsusarioDAO;
+import org.zabalburu.daw1.ActividadEvento.dao.UsuarioDAO;
 
 /**
  *
  * @author Sheila
  */
-public class EventoServicio implements UsusarioDAO {
+public class EventoServicio implements UsuarioDAO {
     
-    private UsusarioDAO dao = new EventoList(); // porque????
+    private UsuarioDAO dao = new EventoList(); // porque????
 
     @Override
     public void nuevoEvento(Evento nuevo) {
