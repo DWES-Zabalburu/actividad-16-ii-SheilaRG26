@@ -14,22 +14,30 @@ import org.zabalburu.daw1.ActividadEvento.modelo.Usuario;
  * @author Sheila
  */
 public class UsuarioMatriz implements UsuarioDAO {
-    private static Usuario[] usuarios = new Usuario[10];
+    private static Usuario[] usuarios = new Usuario[100];
     private static int numUsuarios = 0;
-
+    /*
+        si no las declarasemos staticas, al crear 
+        dos objetos de tipo matriz surgirian problemas.
+        Patron Singleton mas adelante.
+    */
+    
     @Override
     public Usuario nuevoUsuario(Usuario nuevo) {
-        usuarios[numUsuarios] = nuevo;
-        numUsuarios++;
+        if (numUsuarios < usuarios.length) {
+            usuarios[numUsuarios] = nuevo;
+            numUsuarios++;
+        }    
         return nuevo;
+    }    
     
-    }
+    
 
     @Override
     public void eliminarUsuario(int id) {
-        int i;
-        for (i = 0; i < numUsuarios && id != usuarios[i].getId(); i++); 
-        if (i<numUsuarios) {
+        int i = buscarPosicion(id);
+        
+        if (i != -1) {
             for (;i<numUsuarios -1;i++) {
                 usuarios[i] = usuarios[i+1];
             }
@@ -70,5 +78,29 @@ public class UsuarioMatriz implements UsuarioDAO {
         }
         return lista;
     }
+
+    @Override
+    public void modificarUsuario(Usuario modificar) {
+        //buscamos la posicion de la persona con el id.
+        int pos = buscarPosicion(modificar.getId());
+        if (pos != -1) {
+            //sustituimos a la persona del id que teniamos, por la que me pasan
+            usuarios[pos] = modificar;
+            
+        }
+    }
     
+    
+    /* metodo de utilidad,tien que ser privado.
+    necesito saber en que posicion esa la persona,
+    no quien es.*/
+    private int buscarPosicion (int id){
+    int i;
+        for(i=0; i<numUsuarios && id != usuarios[i].getId(); i++);
+        if (i < numUsuarios){
+            return i;
+        }else {
+            return -1;
+        }
+    }
 }

@@ -16,4 +16,5 @@ public interface EventoDAO {
     void eliminarEvento(int codigo);
     Evento getEvento(int codigo);
     List<Evento> getEventos();
+    void modificarEvento(Evento evento);
 }

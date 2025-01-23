@@ -19,13 +19,8 @@ public class EventoServicio implements UsuarioDAO {
     private UsuarioDAO dao = new EventoList(); // porque????
 
     @Override
-    public void nuevoEvento(Evento nuevo) {
-        dao.nuevoEvento(nuevo);
-    }
-
-    @Override
-    public void nuevoUsuario(Usuario nuevo) {
-        dao.nuevoUsuario(nuevo);
+    public Usuario nuevoUsuario(Usuario nuevo) {
+       return dao.nuevoUsuario(nuevo);
     }
 
     @Override
@@ -35,22 +30,18 @@ public class EventoServicio implements UsuarioDAO {
 
     @Override
     public Usuario getUsuario(int id) {
-        return dao.getUsuario(id);
-    }
+        return dao.getUsuario(id);}
 
     @Override
-    public Evento getEvento(int codigo) {
-        return dao.getEvento(codigo);
-    }
+    public Usuario getUsuario(String dni) {
+        return dao.getUsuario(dni);}
 
     @Override
     public List<Usuario> getUsuarios() {
-        return dao.getUsuarios();
-    }
+        return dao.getUsuarios();}
 
     @Override
-    public List<Evento> getEventos() {
-        return dao.getEventos();
+    public void modificarUsuario(Usuario modificar) {
+    dao.modificarUsuario(modificar);
     }
-
 }

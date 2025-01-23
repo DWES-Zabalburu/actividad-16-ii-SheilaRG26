@@ -16,10 +16,10 @@ public interface UsuarioDAO {
     
     Usuario nuevoUsuario(Usuario nuevo);//que le devuelva lo mismo + id
     void eliminarUsuario(int id); // hay gente que devuelve valor booleano para que le diga si lo ha eliminado o no, en caso de que no exista ese id
-    Usuario getUsuario(int id);
+    Usuario getUsuario(int id);//te devuelve la perosna o null cuando poes Usuario por delante
     Usuario getUsuario(String dni);
     List<Usuario> getUsuarios();
-    
+    void modificarUsuario(Usuario modificar);
     
 }
 
