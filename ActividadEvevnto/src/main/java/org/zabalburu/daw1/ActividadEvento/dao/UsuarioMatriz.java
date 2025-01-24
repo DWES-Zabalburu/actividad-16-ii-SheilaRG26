@@ -49,10 +49,9 @@ public class UsuarioMatriz implements UsuarioDAO {
     @Override
     public Usuario getUsuario(int id) {
         
-        int i;
-        for (i = 0; i < numUsuarios && id != usuarios[i].getId(); i++); 
-        if (i < numUsuarios) {
-            return usuarios[i];
+        int pos = buscarPosicion(id);
+        if (pos != -1) {
+            return usuarios[pos];
         }else{
             return null;
         }
@@ -61,12 +60,8 @@ public class UsuarioMatriz implements UsuarioDAO {
     @Override
     public Usuario getUsuario(String dni) {
         int i;
-        for (i = 0; i < numUsuarios && dni != usuarios[i].getDni(); i++); 
-        if (i < numUsuarios) {
-            return usuarios[i];
-        }else{
-            return null;
-        }
+        for(i = 0; i<numUsuarios && !dni.equalsIgnoreCase(dni);i++);
+        return (i == numUsuarios)?null:usuarios[i];
         
     }
 
@@ -102,5 +97,9 @@ public class UsuarioMatriz implements UsuarioDAO {
         }else {
             return -1;
         }
+    }
+    
+    public void limpiarDAtos(){
+        usuarios 
     }
 }

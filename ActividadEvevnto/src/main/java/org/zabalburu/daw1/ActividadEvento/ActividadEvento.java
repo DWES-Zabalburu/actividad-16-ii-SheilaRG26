@@ -10,4 +10,8 @@ package org.zabalburu.daw1.ActividadEvento;
  */
 public class ActividadEvento {
     
+    public static void main(String[] args) {
+    
+    
+    }
 }

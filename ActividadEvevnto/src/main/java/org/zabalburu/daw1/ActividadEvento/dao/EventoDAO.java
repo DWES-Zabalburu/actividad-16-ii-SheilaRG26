@@ -12,7 +12,7 @@ import org.zabalburu.daw1.ActividadEvento.modelo.Evento;
  * @author DAW1
  */
 public interface EventoDAO {
-    void nuevoEvento(Evento nuevo);
+    Evento nuevoEvento(Evento nuevo);
     void eliminarEvento(int codigo);
     Evento getEvento(int codigo);
     List<Evento> getEventos();
