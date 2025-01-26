@@ -9,6 +9,7 @@ import org.zabalburu.daw1.ActividadEvento.dao.EventoList;
 import org.zabalburu.daw1.ActividadEvento.modelo.Evento;
 import org.zabalburu.daw1.ActividadEvento.modelo.Usuario;
 import org.zabalburu.daw1.ActividadEvento.dao.UsuarioDAO;
+import org.zabalburu.daw1.ActividadEvento.dao.UsuarioMatriz;
 
 /**
  *
@@ -16,7 +17,7 @@ import org.zabalburu.daw1.ActividadEvento.dao.UsuarioDAO;
  */
 public class EventoServicio implements UsuarioDAO {
     
-    private UsuarioDAO dao = new EventoList(); // porque????
+    private UsuarioDAO dao = new UsuarioMatriz(); 
 
     @Override
     public Usuario nuevoUsuario(Usuario nuevo) {

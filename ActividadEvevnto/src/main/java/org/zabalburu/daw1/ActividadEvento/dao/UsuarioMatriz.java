@@ -99,7 +99,7 @@ public class UsuarioMatriz implements UsuarioDAO {
         }
     }
     
-    public void limpiarDAtos(){
+    /*public void limpiarDAtos(){
         usuarios 
-    }
+    }*/
 }

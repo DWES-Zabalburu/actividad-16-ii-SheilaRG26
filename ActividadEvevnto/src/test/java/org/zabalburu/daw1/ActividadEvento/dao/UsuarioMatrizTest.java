@@ -31,9 +31,9 @@ public class UsuarioMatrizTest {
     }
     
     @BeforeEach
-    public void setUp() {
+   /* public void setUp() {
         dao.limpiarDatos(); //cada vez que se lanza test, se llama a limpiar datos, asi siempre se empieza el test sin ninguna personma
-    }
+    }*/
     
     @AfterEach
     public void tearDown() {
