@@ -99,7 +99,8 @@ public class UsuarioMatriz implements UsuarioDAO {
         }
     }
     
-    /*public void limpiarDAtos(){
-        usuarios 
-    }*/
+    public void limpiarDatos(){
+        usuarios = new Usuario[100];
+        numUsuarios = 0;
+    }
 }

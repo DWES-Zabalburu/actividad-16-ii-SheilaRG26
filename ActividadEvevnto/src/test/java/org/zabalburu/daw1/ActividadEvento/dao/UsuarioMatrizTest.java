@@ -31,9 +31,9 @@ public class UsuarioMatrizTest {
     }
     
     @BeforeEach
-   /* public void setUp() {
+    public void setUp() {
         dao.limpiarDatos(); //cada vez que se lanza test, se llama a limpiar datos, asi siempre se empieza el test sin ninguna personma
-    }*/
+    }
     
     @AfterEach
     public void tearDown() {
@@ -57,6 +57,15 @@ public class UsuarioMatrizTest {
      */
     @Test
     public void testEliminarUsuario() {
+        Usuario u = new Usuario("Paco","MArtinez",null,"00000D",null);
+        dao.nuevoUsuario(u);
+        assertEquals(dao.getUsuarios().size(),2);
+        Usuario u2 = new Usuario ("Paco","MArtinez",null,"00000D",null);
+        dao.nuevoUsuario(u2);
+        dao.eliminarUsuario(1);
+        assertEquals(dao.getUsuarios().size(),1);
+        assertEquals(dao.getUsuarios().get(0),u2);
+        
     }
 
     /**
@@ -85,6 +94,12 @@ public class UsuarioMatrizTest {
      */
     @Test
     public void testModificarUsuario() {
+        Usuario u = new Usuario("Paco","MArtinez",null,"00000D",null);
+        dao.nuevoUsuario(u);
+        assertEquals(dao.getUsuarios().get(0), u);
+       Usuario nuevo = new Usuario("Pepa","MArtinez",null,"00000D",null);
+       nuevo.setId(u.getId());
+       // assertEquals(dao.getUsuario().size());
     }
     
 }

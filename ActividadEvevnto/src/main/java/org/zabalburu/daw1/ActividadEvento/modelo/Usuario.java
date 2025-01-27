@@ -30,7 +30,7 @@ public class Usuario {
         this.id = Usuario.numId;
     }
     
-    public Usuario(String nombre,String apellidos, Date fnacimiento, String dni,String password) {
+    public Usuario(String nombre,String apellidos, String dni,String password, Date fnacimiento) {
         this();
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -144,7 +144,7 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" + "nombre=" + nombre + ", apellidos=" + apellidos + ", fnacimiento=" + fnacimiento + ", dni=" + dni + ", password=" + password + ", id=" + id + '}';
-    }
+    }// no mostramos la lista para no generar un stackoverflow. podemos mostralo en una clase, no las dos
 
     
     
